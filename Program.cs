@@ -10,9 +10,8 @@ namespace SnakeLadder
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("welcome to snake and ladder");
-            int Palyer1 = 0;
-            Console.WriteLine("Starts with single player position : " + 0);
+            SnakeLadderLogic.snake();
+            Console.ReadLine();
         }
     }
 }
