@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,18 +12,43 @@ namespace SnakeLadder
     {
         public static void snake()
         {
-            int Palyer1 = 0;
-            Console.WriteLine("WELCOME TO SANKE & LADDER");            
-            
+            //constant
+
+            int LADDER = 1;
+            int SNAKE = 2;
+            int Player1 = 0;
+
+            //for dice
+            int CurrentPosition = 0;
+            Random random1 = new Random();
+            int Move = random1.Next(1, 7);
+
+            Console.WriteLine("---WELCOME TO SANKE & LADDER--");
+            Console.WriteLine("------------------------------");
+
             Console.WriteLine("enter your name here");
             string Name = Console.ReadLine();
-            Console.WriteLine("welcome : " + Name + " into Snake & Ladder");
+            Console.WriteLine("welcome : " + Name);
             Console.WriteLine("Press enter for start the game");
-            Console.WriteLine("Starts with single player position : " + Palyer1);
             Console.ReadLine();
             Random random = new Random();
-            int x = random.Next(0, 7);
-            Console.WriteLine("dice value for player1 : " + x);
+            //computation
+            int x = random.Next(0, 3);
+            if (x == SNAKE)
+            {
+                Console.WriteLine("snake");
+                CurrentPosition += Move;
+            }
+            else if (x == LADDER)
+            {
+                Console.WriteLine("Ladder");
+                CurrentPosition -= Move;
+            }
+            else
+            {
+                Console.WriteLine("No Paly");
+            }
         }
+            
     }
 }
