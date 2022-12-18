@@ -16,12 +16,8 @@ namespace SnakeLadder
 
             int LADDER = 1;
             int SNAKE = 2;
-            int Player1 = 0;
-
-            //for dice
             int CurrentPosition = 0;
-            Random random1 = new Random();
-            int Move = random1.Next(1, 7);
+            //int Player1 = 0;
 
             Console.WriteLine("---WELCOME TO SANKE & LADDER--");
             Console.WriteLine("------------------------------");
@@ -31,24 +27,42 @@ namespace SnakeLadder
             Console.WriteLine("welcome : " + Name);
             Console.WriteLine("Press enter for start the game");
             Console.ReadLine();
-            Random random = new Random();
-            //computation
-            int x = random.Next(0, 3);
-            if (x == SNAKE)
+
+            while (CurrentPosition < 100)
             {
-                Console.WriteLine("snake");
-                CurrentPosition += Move;
+                //for dice                
+                Random random1 = new Random();
+                int Move = random1.Next(1, 7);
+
+                Random random = new Random();
+                int x = random.Next(0, 3);
+                if (x == SNAKE)
+                {
+                    CurrentPosition -= Move;
+                    Console.WriteLine("snake");
+                    Console.WriteLine("CurrentPosition" + CurrentPosition);     
+                    if (CurrentPosition < 0)
+                    {
+                        CurrentPosition = 0;
+                    }
+                }
+                else if (x == LADDER)
+                {
+                    CurrentPosition += Move;
+                    Console.WriteLine("Ladder");
+                    Console.WriteLine("CurrentPosition" + CurrentPosition);
+                    if (CurrentPosition > 100)
+                    {
+                        CurrentPosition -= Move;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No Paly");
+                    Console.WriteLine("CurrentPosition" + CurrentPosition);
+
+                }
             }
-            else if (x == LADDER)
-            {
-                Console.WriteLine("Ladder");
-                CurrentPosition -= Move;
-            }
-            else
-            {
-                Console.WriteLine("No Paly");
-            }
-        }
-            
+        }        
     }
 }
