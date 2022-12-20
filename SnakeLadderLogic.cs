@@ -17,6 +17,8 @@ namespace SnakeLadder
             int LADDER = 1;
             int SNAKE = 2;
             int CurrentPosition = 0;
+
+            int count=0;
             //int Player1 = 0;
 
             Console.WriteLine("---WELCOME TO SANKE & LADDER--");
@@ -30,17 +32,20 @@ namespace SnakeLadder
 
             while (CurrentPosition < 100)
             {
-                //for dice                
-                Random random1 = new Random();
-                int Move = random1.Next(1, 7);
+                //for dice
 
                 Random random = new Random();
                 int x = random.Next(0, 3);
+                Random random1 = new Random();
+                int Move = random1.Next(1, 7);
+                Console.WriteLine(" dice : " + Move);
+                count++;
+
                 if (x == SNAKE)
                 {
                     CurrentPosition -= Move;
                     Console.WriteLine("snake");
-                    Console.WriteLine("CurrentPosition" + CurrentPosition);     
+                    Console.WriteLine(" CurrentPosition " + CurrentPosition);     
                     if (CurrentPosition < 0)
                     {
                         CurrentPosition = 0;
@@ -50,7 +55,7 @@ namespace SnakeLadder
                 {
                     CurrentPosition += Move;
                     Console.WriteLine("Ladder");
-                    Console.WriteLine("CurrentPosition" + CurrentPosition);
+                    Console.WriteLine(" CurrentPosition " + CurrentPosition);
                     if (CurrentPosition > 100)
                     {
                         CurrentPosition -= Move;
@@ -59,10 +64,11 @@ namespace SnakeLadder
                 else
                 {
                     Console.WriteLine("No Paly");
-                    Console.WriteLine("CurrentPosition" + CurrentPosition);
+                    Console.WriteLine(" CurrentPosition " + CurrentPosition);
 
                 }
             }
+            Console.WriteLine(" Number of Dice count " + count);
         }        
     }
 }
