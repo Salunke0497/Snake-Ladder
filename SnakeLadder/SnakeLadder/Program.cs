@@ -10,10 +10,9 @@ namespace SnakeLadder
     {
         static void Main(string[] args)
         {
-
-            Console.WriteLine("Welcome Game Snake-Ladder");
-            int Position = 0;
-            Console.WriteLine("Your position is : " + Position);
+            SnakeLadderLogic snakeLadderLogic = new SnakeLadderLogic();
+            snakeLadderLogic.SnakLadder();
+            Console.ReadLine();
 
         }
     }
