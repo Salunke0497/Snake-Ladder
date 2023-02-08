@@ -21,6 +21,7 @@ namespace SnakeLadder
             const int snake = 1;
             const int Ladder = 2;
             int CurrentPosition = 0;
+            int count = 0;
 
             //Console.WriteLine("Your position is : " + Position);
 
@@ -45,6 +46,7 @@ namespace SnakeLadder
             {               
                 Random random = new Random();
                 int dice = random.Next(0, 7);
+                count++; //UC6-Dice count
 
                 Console.WriteLine("dice value for player1 : " + dice);
 
@@ -55,8 +57,8 @@ namespace SnakeLadder
                 {
                     Console.WriteLine("snake");
                     CurrentPosition -= dice;
-                    Console.WriteLine("CurrentPosition" + CurrentPosition);
-                    if (CurrentPosition < 0)
+                    Console.WriteLine("CurrentPosition : " + CurrentPosition);
+                    if (CurrentPosition < 0)   //not less than zero
                     {
                         CurrentPosition = 0;
                     }
@@ -65,7 +67,9 @@ namespace SnakeLadder
                 {
                     Console.WriteLine("Ladder");
                     CurrentPosition += dice;
-                    Console.WriteLine("CurrentPosition" + CurrentPosition);
+                    Console.WriteLine("CurrentPosition : " + CurrentPosition);
+
+                    //Uc 5 When player position goes to greater than 100 then its automatically break the program
                     if (CurrentPosition > 100)
                     {
                         CurrentPosition -= dice;
@@ -74,9 +78,10 @@ namespace SnakeLadder
                 else
                 {
                     Console.WriteLine("No Paly");
-                    Console.WriteLine("CurrentPosition" + CurrentPosition);
+                    Console.WriteLine("CurrentPosition : " + CurrentPosition);
                 }
                 Console.WriteLine("Current_Position : " + CurrentPosition);
+                Console.WriteLine("dice count : " + count);
             }
         }
     }
