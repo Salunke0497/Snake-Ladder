@@ -38,6 +38,9 @@ namespace SnakeLadder
 
             Console.WriteLine("Starts with single player position : " + Player1);
             Console.ReadLine();
+
+            //UC4-repet till position 100 for use (while loop)
+
             while (CurrentPosition < 100)
             {               
                 Random random = new Random();
@@ -52,15 +55,26 @@ namespace SnakeLadder
                 {
                     Console.WriteLine("snake");
                     CurrentPosition -= dice;
+                    Console.WriteLine("CurrentPosition" + CurrentPosition);
+                    if (CurrentPosition < 0)
+                    {
+                        CurrentPosition = 0;
+                    }
                 }
                 else if (OptionCheck == Ladder)
                 {
                     Console.WriteLine("Ladder");
                     CurrentPosition += dice;
+                    Console.WriteLine("CurrentPosition" + CurrentPosition);
+                    if (CurrentPosition > 100)
+                    {
+                        CurrentPosition -= dice;
+                    }
                 }
                 else
                 {
                     Console.WriteLine("No Paly");
+                    Console.WriteLine("CurrentPosition" + CurrentPosition);
                 }
                 Console.WriteLine("Current_Position : " + CurrentPosition);
             }
