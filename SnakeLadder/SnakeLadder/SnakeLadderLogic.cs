@@ -20,7 +20,8 @@ namespace SnakeLadder
             const int NoPlay= 0;
             const int snake = 1;
             const int Ladder = 2;
-            
+            int CurrentPosition = 0;
+
             //Console.WriteLine("Your position is : " + Position);
 
 
@@ -37,31 +38,32 @@ namespace SnakeLadder
 
             Console.WriteLine("Starts with single player position : " + Player1);
             Console.ReadLine();
+            while (CurrentPosition < 100)
+            {               
+                Random random = new Random();
+                int dice = random.Next(0, 7);
 
-            int CurrentPosition = 0;
-            Random random = new Random();
-            int dice = random.Next(0, 7);
+                Console.WriteLine("dice value for player1 : " + dice);
 
-            Console.WriteLine("dice value for player1 : " + dice);
-
-            //UC3-check-(No-Play/Snake/Ladder)
-            Random random1 = new Random();
-            int OptionCheck = random.Next(0, 3);
-            if (OptionCheck == snake)
-            {
-                Console.WriteLine("snake");
-                CurrentPosition += dice;
+                //UC3-check-(No-Play/Snake/Ladder)
+                Random random1 = new Random();
+                int OptionCheck = random.Next(0, 3);
+                if (OptionCheck == snake)
+                {
+                    Console.WriteLine("snake");
+                    CurrentPosition -= dice;
+                }
+                else if (OptionCheck == Ladder)
+                {
+                    Console.WriteLine("Ladder");
+                    CurrentPosition += dice;
+                }
+                else
+                {
+                    Console.WriteLine("No Paly");
+                }
+                Console.WriteLine("Current_Position : " + CurrentPosition);
             }
-            else if (OptionCheck == Ladder)
-            {
-                Console.WriteLine("Ladder");
-                CurrentPosition -= dice;
-            }
-            else
-            {
-                Console.WriteLine("No Paly");
-            }
-            Console.WriteLine("Current_Position : " + CurrentPosition);
         }
     }
 }
